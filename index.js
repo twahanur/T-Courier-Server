@@ -15,6 +15,7 @@ const uri = `mongodb+srv://${process.env.DB_USER}:${process.env.DB_PASS}@cluster
 
 const client = new MongoClient(uri, { useNewUrlParser: true, useUnifiedTopology: true });
 client.connect(err => {
+    console.log(err);
     const serviceCollection = client.db("T-Courier").collection("Services");
     const bookedCollection = client.db("T-Courier").collection("Booked-Service");
     const adminCollection = client.db("T-Courier").collection("Admin");
