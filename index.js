@@ -11,7 +11,7 @@ app.use(cors());
 app.use(express.json());
 
 // MongoDB Connection
-const uri = `mongodb+srv://${process.env.DB_USER}:${process.env.DB_PASS}@cluster0.566ly.mongodb.net/${process.env.DB_NAME}?retryWrites=true&w=majority`;
+const uri = `mongodb+srv://ThohanurRahman:Thohanur@cluster0.566ly.mongodb.net/T-Courier?retryWrites=true&w=majority`;
 
 const client = new MongoClient(uri, { useNewUrlParser: true, useUnifiedTopology: true });
 client.connect(err => {
@@ -110,7 +110,7 @@ client.connect(err => {
 
             app.post('/isAdmin', (req, res) => {
                 const email = req.body.email;
-                adminCollection.find({ email: email })
+                adminCollection.find({ email:email })
                     .toArray((err, admin) => {
                         res.send(admin.length > 0);
                     })
